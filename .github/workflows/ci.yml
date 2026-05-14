@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Validate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.3"
+          tools: composer:v2
+          coverage: none
+
+      - name: composer validate
+        run: composer validate --strict --no-check-publish
+
+      - name: composer install
+        run: composer install --no-progress --no-interaction
+
+      - name: Autoload smoke
+        run: |
+          php -r 'require "vendor/autoload.php"; class_exists("Io\\Altessa\\Badrequest\\V1\\BadRequest") || exit(1);'
