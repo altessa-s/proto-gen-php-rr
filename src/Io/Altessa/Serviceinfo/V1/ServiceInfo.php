@@ -87,12 +87,6 @@ class ServiceInfo extends \Google\Protobuf\Internal\Message
      */
     private $metadata;
     /**
-     * Version of the Protobuf package or definitions that this service was compiled against.
-     *
-     * Generated from protobuf field <code>optional string proto_version = 12 [json_name = "protoVersion"];</code>
-     */
-    protected $proto_version = null;
-    /**
      * Identifier of the current leader instance if this node is not the leader.
      * This is useful for clients to discover the active leader.
      *
@@ -146,8 +140,6 @@ class ServiceInfo extends \Google\Protobuf\Internal\Message
      *     @type array|\Google\Protobuf\Internal\MapField $metadata
      *           A collection of key-value pairs for additional, arbitrary metadata about the service instance.
      *           Keys and values are strings. Maximum 100 entries allowed.
-     *     @type string $proto_version
-     *           Version of the Protobuf package or definitions that this service was compiled against.
      *     @type string $leader_id
      *           Identifier of the current leader instance if this node is not the leader.
      *           This is useful for clients to discover the active leader.
@@ -514,42 +506,6 @@ class ServiceInfo extends \Google\Protobuf\Internal\Message
     {
         $arr = GPBUtil::checkMapField($var, \Google\Protobuf\Internal\GPBType::STRING, \Google\Protobuf\Internal\GPBType::STRING);
         $this->metadata = $arr;
-
-        return $this;
-    }
-
-    /**
-     * Version of the Protobuf package or definitions that this service was compiled against.
-     *
-     * Generated from protobuf field <code>optional string proto_version = 12 [json_name = "protoVersion"];</code>
-     * @return string
-     */
-    public function getProtoVersion()
-    {
-        return isset($this->proto_version) ? $this->proto_version : '';
-    }
-
-    public function hasProtoVersion()
-    {
-        return isset($this->proto_version);
-    }
-
-    public function clearProtoVersion()
-    {
-        unset($this->proto_version);
-    }
-
-    /**
-     * Version of the Protobuf package or definitions that this service was compiled against.
-     *
-     * Generated from protobuf field <code>optional string proto_version = 12 [json_name = "protoVersion"];</code>
-     * @param string $var
-     * @return $this
-     */
-    public function setProtoVersion($var)
-    {
-        GPBUtil::checkString($var, True);
-        $this->proto_version = $var;
 
         return $this;
     }
