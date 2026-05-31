@@ -56,11 +56,12 @@ generated descriptors).
 grpc:
   listen: tcp://0.0.0.0:9001
   proto:
-    - "vendor/altessa-s/proto-gen-php-rr/proto/serviceinfo/v1/serviceinfo_service.proto"
+    - "vendor/altessa-s/proto-gen-php-rr/proto/services/serviceinfo/v1/serviceinfo_service.proto"
 ```
 
-`badrequest/v1/badrequest.proto` is a message-only schema and does not
-need to appear in the `proto:` list.
+`services/badrequest/v1/badrequest.proto` and the value types under
+`type/v1/` are message-only schemas and do not need to appear in the
+`proto:` list.
 
 ## License
 
